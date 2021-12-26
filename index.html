@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Plus</title>
+    <link rel="icon" type="image/png" href="src/img/Logo.png" sizes="32x32">
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- <script src="js/jquery-1.11.1.min.js"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css" integrity="sha512-Cb0WDP6lVyVaQJulFMEOBGpkgqU6UAOEBpthbb9BfdhmUXnmYQwobuCm6Xp2YYL6Pd/l0ZA5Up/ijp0fu+nFpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script>
+        $(function() {
+            $("#header").load("src/templates/header.html");
+            $("#footer").load("src/templates/footer.html");
+            $("#chat").load("src/templates/chat-form.html");
+        });
+    </script>
+    <script src="src/js/angular.min.js"></script>
+    <script>
+        let app = angular.module("angularApp", []);
+        app.controller("IndexController", function($scope, $http) {
+            $http({
+                method: "GET",
+                url: "src/data/feedbackAPlus.json",
+            }).then(function success(response) {
+                    $scope.feedbacks = response.data;
+                },
+                function error(response) {
+                    $scope.error = response.statusText;
+                }
+            );
+            $http({
+                method: "GET",
+                url: "src/data/blog.json"
+            }).then(function success(response) {
+                    $scope.blogs = response.data;
+                },
+                function error(response) {
+                    $scope.error = response.statusText;
+                }
+            );
+        })
+    </script>
+</head>
+
+<body ng-app="angularApp" ng-controller="IndexController">
+    <div class="container-layout">
+        <header id="header"></header>
+        <main>
+            <!-- clip -->
+            <div class="row__item--clip">
+                <video src="src/media/vid1.mp4" autoplay="true" loop></video>
+            </div>
+            <!-- best seller product -->
+            <div class="row__item--bestseller">
+                <img src="src/img/best-seller-products.png" alt="">
+                <div class="bestseller__item">
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active">
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-3">
+                                        <div class="bestseller__item--card products-card">
+                                            <img src="src/img/leu8.jpg" alt="">
+                                            <h2>Lều 2 người</h2>
+                                            <p>1670000 vnđ</p>
+                                            <a href="">Chi tiết sản phẩm</a>
+                                            <div>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <hr>
+                                            <button onClick="">Mua ngay</button>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-3">
+                                        <div class="bestseller__item--card products-card">
+                                            <img src="src/img/dien10.png" alt="">
+                                            <h2>Đèn diệt muỗi</h2>
+                                            <p>375000 vnđ</p>
+                                            <a href="">Chi tiết sản phẩm</a>
+                                            <div>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <hr>
+                                            <button onClick="">Mua ngay</button>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-3">
+                                        <div class="bestseller__item--card products-card">
+                                            <img src="src/img/dien3.jpg" alt="">
+                                            <h2>AVA+ JP208</h2>
+                                            <p>400000 vnđ</p>
+                                            <a href="">Chi tiết sản phẩm</a>
+                                            <div>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <hr>
+                                            <button onClick="">Mua ngay</button>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-3">
+                                        <div class="bestseller__item--card products-card">
+                                            <img src="src/img/dem4.jpg" alt="">
+                                            <h2>Đệm hơi đơn</h2>
+                                            <p>620000 vnđ</p>
+                                            <a href="">Chi tiết sản phẩm</a>
+                                            <div>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <hr>
+                                            <button onClick="">Mua ngay</button>
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-3">
+                                        <div class="bestseller__item--card products-card">
+                                            <img src="src/img/tui1.jpg" alt="">
+                                            <h2>Túi ngủ đôi</h2>
+                                            <p>730000 vnđ</p>
+                                            <a href="">Chi tiết sản phẩm</a>
+                                            <div>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <hr>
+                                            <button onClick="">Mua ngay</button>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-3">
+                                        <div class="bestseller__item--card products-card">
+                                            <img src="src/img/leu7.jpg" alt="">
+                                            <h2>Lều dã ngoại</h2>
+                                            <p>4289000 vnđ</p>
+                                            <a href="">Chi tiết sản phẩm</a>
+                                            <div>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <hr>
+                                            <button onClick="">Mua ngay</button>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-3">
+                                        <div class="bestseller__item--card products-card">
+                                            <img src="src/img/leu3.jpg" alt="">
+                                            <h2>Lều Arpenaz</h2>
+                                            <p>1595000 vnđ</p>
+                                            <a href="">Chi tiết sản phẩm</a>
+                                            <div>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <hr>
+                                            <button onClick="">Mua ngay</button>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-3">
+                                        <div class="bestseller__item--card products-card">
+                                            <img src="src/img/tui9.jpg" alt="">
+                                            <h2>Túi ngủ ARPENAZ</h2>
+                                            <p>450000 vnđ</p>
+                                            <a href="">Chi tiết sản phẩm</a>
+                                            <div>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <hr>
+                                            <button onClick="">Mua ngay</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- discount -->
+            <div class="row__item--discount">
+                <div class="discount__item">
+                    <h1>CHƯƠNG TRÌNH KHUYẾN MÃI THÁNG 01</h1>
+                    <p><span>VOUCHER 50%</span><br>ÁP DỤNG CHO TẤT CẢ CÁC DỊCH VỤ</p>
+                    <span>DÀNH CHO KHÁCH HÀNG THÂN THIẾT CỦA A PLUS</span>
+                </div>
+            </div>
+            <!-- blog new-->
+            <div class="row__item--new">
+                <div class="new__item">
+                    <h1>NHỮNG NƠI ẤM ÁP ĐỂ DU LỊCH VÀO DỊP TẾT</h1>
+                    <P>Đến Bangkok dịp cuối năm, du khách thoải mái mặc váy ngắn, áo cộc tay và tận hưởng ánh nắng ấm áp thay vì sự lạnh giá của mùa đông.</P>
+                </div>
+
+                <img src="src/img/new-title.png" alt="">
+            </div>
+            <!-- price list -->
+            <div class="row__item--pricelist">
+                <img src="src/img/image-2.png" alt="">
+                <div class="pricelist__item">
+                    <img src="src/img/price.png" alt="">
+                    <div id="pricetable">
+                        <div class="table__col">
+                            <div class="table__col--thead">Dịch vụ cho thuê</div>
+                            <div>Lều 2 người</div>
+                            <div>Glamping Medium</div>
+                            <div>Trang phục</div>
+                            <div>Tiệc sinh nhật</div>
+                            <div>Bữa ăn Special</div>
+                            <div>Bộ dụng cụ lều</div>
+                        </div>
+                        <div class="table__col">
+                            <div class="table__col--thead" v>24h-48h</div>
+                            <div>500.000vnđ</div>
+                            <div>500.000vnđ</div>
+                            <div>500.000vnđ</div>
+                            <div>500.000vnđ</div>
+                            <div>500.000vnđ</div>
+                            <div>Miễn phí</div>
+                        </div>
+                        <div class="table__col">
+                            <div class="table__col--thead">Trên 48h</div>
+                            <div>700.000vnđ</div>
+                            <div>500.000vnđ</div>
+                            <div>580.000vnđ</div>
+                            <div>500.000vnđ</div>
+                            <div>500.000vnđ</div>
+                            <div>Miễn phí</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- map -->
+            <div class="row__item--map">
+                <img src="src/img/map.png" alt="">
+                <div class="map__item">
+                    <img src="src/img/map-title.png" alt="">
+                    <div class="map__item--descrition">
+                        <div id="descritionIcon">
+                            <ul>
+                                <li><i class="fas fa-info-circle"></i></li>
+                                <li><i class="fas fa-restroom"></i></li>
+                                <li><i class="fas fa-clinic-medical"></i></li>
+                                <li><i class="fas fa-parking"></i></li>
+                                <li><i class="fas fa-utensils"></i></li>
+                                <li><i class="fas fa-campground"></i></li>
+                                <li><i class="fas fa-fire"></i></li>
+                            </ul>
+                        </div>
+                        <div id="descritionText">
+                            <ul>
+                                <li>Lễ tân, Trung tâm thông tin</li>
+                                <li>Phòng vệ sinh</li>
+                                <li>Sơ cứu / cứu thương</li>
+                                <li>Bãi đậu xe</li>
+                                <li>Nhà hàng, Quán cà phê</li>
+                                <li>Khu vực ngồi</li>
+                                <li>Nơi đối lửa / đồ nướng</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- blog feedback -->
+            <div class="row__item--feedback">
+                <div class="feedback__title">
+                    <img src="src/img/feedback-title.png" alt="">
+                </div>
+                <div class="feedback__item">
+                    <div class="feedback__item--content" ng-repeat="fb in feedbacks|limitTo:4">
+                        <img src="{{'src/img/' + fb.avt}}" alt="">
+                        <p>{{fb.content}}</p>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- blog sharing -->
+            <div class="row__item--sharing">
+                <div class="sharing__item">
+                    <div class="sharing__item--content" ng-repeat="b in blogs|limitTo: 3">
+                        <div>
+                            <img src="{{'src/img/' + b.img[0].imgtitle}}" alt=" ">
+                        </div>
+                        <div class="sharing__item--content-text">
+                            <p>Blog | {{b.title}} - {{b.author}}</p>
+                            <p><i>{{b.date}}</i></p>
+                            <p id="BlogName"><a href="blog-detail.html?blogname={{b.name}}">{{b.name}}</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button onclick="topFunction()" id="btnToTop" title="Go to top"><i class="fas fa-angle-up"></i></button>
+            <button id="btnChat" onclick="openForm()"><i class="far fa-comment-dots"></i></button>
+            <div id="chat"></div>
+        </main>
+        <footer id="footer"></footer>
+    </div>
+    <script src="src/js/javascript.js">
+    </script>
+</body>
+
+</html>

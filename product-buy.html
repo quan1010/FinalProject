@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="image/png" href="src/img/Logo.png" sizes="32x32">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <script src="./src/js/javascript.js"></script>
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css" integrity="sha512-Cb0WDP6lVyVaQJulFMEOBGpkgqU6UAOEBpthbb9BfdhmUXnmYQwobuCm6Xp2YYL6Pd/l0ZA5Up/ijp0fu+nFpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+    <script>
+        $(function() {
+            $("#header").load("src/templates/header.html");
+            $("#chat").load("src/templates/chat-form.html");
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container-layout">
+        <header id="header"></header>
+        <main>
+            <div class="buy-function-layout">
+                <!-- Tab buy links -->
+                <div class="tab" style="margin-top: 50px;">
+                    <button class="buylinks" onclick="openTab(event, 'buy') " id="defaultOpen">Mua hàng</button>
+                    <span style="font-weight: bold; font-size: 26px;">|</span>
+                    <button class="buylinks" onclick="openTab(event, 'lease')">Thuê hàng</button>
+                </div>
+                <!-- Tab content -->
+                <div id="buy" class="tabBuy_content tabcontent">
+                    <div class="buy_sp">
+                        <input type="checkbox" name="" id="checkboxProduct">
+                        <div class="imgProduct">
+                            <img src="./src/img/leu.png" alt="">
+                        </div>
+                        <div class="buy-text">
+                            <p><b>Lều 4 người NatureHike</b></p>
+                        </div>
+                        <div class="buy-price">
+                            <p><b>4.950.000đ</b></p>
+                        </div>
+                        <div class="buy_deleteProduct">
+                            <button id="buy_deleteProduct" type="reset">Xóa</button>
+                        </div>
+                    </div>
+                    <div class="buy_sp">
+                        <input type="checkbox" name="" id="checkboxProduct">
+                        <div class="imgProduct">
+                            <img src="./src/img/leu.png" alt="">
+                        </div>
+                        <div class="buy-text">
+                            <p><b>Lều 4 người NatureHike</b></p>
+
+                        </div>
+                        <div class="buy-price">
+                            <p><b>4.950.000đ</b></p>
+                        </div>
+                        <div class="buy_deleteProduct">
+                            <button id="buy_deleteProduct" type="reset">Xóa</button>
+                        </div>
+                    </div>
+                    <div class="buy_sp">
+                        <input type="checkbox" name="" id="checkboxProduct">
+                        <div class="imgProduct">
+                            <img src="./src/img/leu.png" alt="">
+                        </div>
+                        <div class="buy-text">
+                            <p><b>Lều 4 người NatureHike</b></p>
+
+                        </div>
+                        <div class="buy-price">
+                            <p><b>4.950.000đ</b></p>
+                        </div>
+                        <div class="buy_deleteProduct">
+                            <button id="buy_deleteProduct" type="reset">Xóa</button>
+                        </div>
+                    </div>
+                    <button type="button" class="btn_buy" id="btn_buy"><a href="purchase-page.html">Mua hàng</a></button>
+                </div>
+                <div id="lease" class="tabBuy_content tabcontent">
+                    <div class="buy_sp">
+                        <input type="checkbox" name="" id="checkboxProduct">
+                        <div class="imgProduct">
+                            <img src="./src/img/leu.png" alt="">
+                        </div>
+                        <div class="buy-text">
+                            <p><b>Lều 4 người NatureHike</b></p>
+
+                        </div>
+                        <div class="buy-price">
+                            <p><b>4.950.000đ</b></p>
+                        </div>
+                        <div class="buy_deleteProduct">
+                            <button id="buy_deleteProduct" type="reset">Xóa</button>
+                        </div>
+                    </div>
+                    <div class="buy_sp">
+                        <input type="checkbox" name="" id="checkboxProduct">
+                        <div class="imgProduct">
+                            <img src="./src/img/leu.png" alt="">
+                        </div>
+                        <div class="buy-text">
+                            <p><b>Lều 4 người NatureHike</b></p>
+
+                        </div>
+                        <div class="buy-price">
+                            <p><b>4.950.000đ</b></p>
+                        </div>
+                        <div class="buy_deleteProduct">
+                            <button id="buy_deleteProduct" type="reset">Xóa</button>
+                        </div>
+                    </div>
+                    <div class="buy_sp">
+                        <input type="checkbox" name="" id="checkboxProduct">
+                        <div class="imgProduct">
+                            <img src="./src/img/leu.png" alt="">
+                        </div>
+                        <div class="buy-text">
+                            <p><b>Lều 4 người NatureHike</b></p>
+
+                        </div>
+                        <div class="buy-price">
+                            <p><b>4.950.000đ</b></p>
+                        </div>
+                        <div class="buy_deleteProduct">
+                            <button id="buy_deleteProduct" type="reset">Xóa</button>
+                        </div>
+                    </div>
+                    <button class="btn_lease" id="btn_lease"><a href="purchase-page.html">Thuê hàng</a></button>
+                </div>
+
+            </div>
+        </main>
+        <button onclick="topFunction()" id="btnToTop" title="Go to top"><i class="fas fa-angle-up"></i></button>
+        <button id="btnChat" onclick="openForm()"><i class="far fa-comment-dots"></i></button>
+        <div id="chat"></div>
+    </div>
+
+    <script>
+        document.getElementById("defaultOpen").click();
+    </script>
+    <script src="src/js/javascript.js">
+    </script>
+</body>
+
+</html>

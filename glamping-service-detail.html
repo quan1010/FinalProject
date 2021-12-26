@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Plus</title>
+    <link rel="icon" type="image/png" href="src/img/Logo.png" sizes="32x32">
+    <link rel="stylesheet" href="src/css/style.css">
+    <!-- <script src="js/jquery-1.11.1.min.js"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css" integrity="sha512-Cb0WDP6lVyVaQJulFMEOBGpkgqU6UAOEBpthbb9BfdhmUXnmYQwobuCm6Xp2YYL6Pd/l0ZA5Up/ijp0fu+nFpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+    <script>
+        $(function() {
+            $("#header").load("src/templates/header.html");
+            $("#footer").load("src/templates/footer.html");
+            $("#chat").load("src/templates/chat-form.html");
+        });
+    </script>
+    <script src="src/js/angular.min.js"></script>
+    <script>
+        let urlparams = new URLSearchParams(location.search);
+        var id = urlparams.get('id');
+    </script>
+    <script>
+        let app = angular.module("angularApp", []);
+        app.controller("DetailController", function($scope, $http) {
+            $http({
+                method: "GET",
+                url: "src/data/service.json"
+            }).then(
+                function success(response) {
+                    $scope.services = response.data;
+                    $scope.selectedService = response.data.find(function(value) {
+                        return value.id == id;
+                    })
+
+                },
+                function error(response) {
+                    $scope.error = response.statusText;
+                })
+        })
+    </script>
+</head>
+
+<body ng-app="angularApp" ng-controller="DetailController">
+    <div class="container-layout">
+        <header id="header"></header>
+        <main>
+            <div class="row-banner">
+                <img src="src/img/banner-service-detail.png" alt="">
+            </div>
+            <div class="service-detail-content">
+                <div class="service-detail-left">
+                    <nav class="menu-links">
+                        <ul ng-repeat="s in services|groupBy:'categoryName'">
+                            <li ng-show="s.group_by_key" id="backServiceList"><a href="glamping-service-list.html">{{s.categoryName}}</a></li>
+                        </ul>
+                    </nav>
+                    <div class="related-products">
+                        <h2>COMBO Tương Tự</h2>
+                        <div class="products-card related-card" ng-repeat="service in services" ng-if="service.categoryId==selectedService.categoryId && service.id != selectedService.id">
+                            <img src="{{'src/img/'+ service.img}}" alt="">
+                            <h2>{{service.name}}</h2>
+                            <p>{{service.price +' vnđ'}}</p>
+                            <a href="" ng-click="serviceDetails(service)">Chi tiết sản phẩm</a>
+                            <div>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <hr>
+                            <button onclick="openPopup()">Mua ngay</button>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="service-detail-right">
+                    <div class="service-detail">
+                        <img src="{{'src/img/'+selectedService.img+serviceDetails.img}}" alt="">
+                        <div>
+                            <h2>{{selectedService.name}}</h2>
+                            <p>Mã dịch vụ: <span id="ProductID">{{selectedService.code}}</span></p>
+                            <div>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h3>{{selectedService.price+' vnđ'}}</h3>
+                            <div class="time-discount">
+                                <p>Thời gian khuyến mãi còn lại:</p>
+                                <p id="countdown"></p>
+                            </div>
+                            <!-- <div class="product-quantity">
+                                <input class="minus is-form" type="button" value="-">
+                                <input aria-label="quantity" class="input-qty" max="10" min="1" name="" type="number" value="">
+                                <input class="plus is-form" type="button" value="+">
+
+                            </div> -->
+                            <button onclick="openPopup()">Đặt hàng ngay</button>
+                            <h4>SĐT tư vấn đặt hàng: +000.000.0000</h4>
+                        </div>
+                    </div>
+                    <div class="service-describe">
+                        <div class="tab">
+                            <button class="tablinks" onclick="openTab(event, 'describe')" id="defaultOpen">Chi tiết sản phẩm</button>
+                            <button class="tablinks" onclick="openTab(event, 'feedback')">Đánh giá</button>
+                        </div>
+                        <div id="describe" class="tabcontent">
+                            <h1>{{selectedService.name}}</h1>
+                            <p>Mã sản phẩm: <span id="ProductID">{{selectedService.code}}</span> </p>
+                            <p>{{selectedService.description}}</p>
+
+                            <div>
+                                <img src="src/img/blog-2.png" alt="">
+                                <img src="src/img/img-blog-3.png" alt="">
+                            </div>
+                        </div>
+
+                        <div id="feedback" class="tabcontent">
+                            <div class="feedback-star">
+                                <div class="feedback-star-total">
+                                    <p><span>4</span>/5</p>
+                                    <div>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p>Trên 110 đánh giá</p>
+                                </div>
+                                <div class="feedback-star-progress">
+                                    <div>
+                                        <span>5x<i class="fas fa-star"></i></span>
+                                        <progress max="100" value="90"></progress>
+                                    </div>
+                                    <div>
+                                        <span>4x<i class="fas fa-star"></i></span>
+                                        <progress max="100" value="20"></progress>
+                                    </div>
+                                    <div>
+                                        <span>3x<i class="fas fa-star"></i></span>
+                                        <progress max="100" value="0"></progress>
+                                    </div>
+                                    <div>
+                                        <span>2x<i class="fas fa-star"></i></span>
+                                        <progress max="100" value="0"></progress>
+                                    </div>
+                                    <div>
+                                        <span>1x<i class="fas fa-star"></i></span>
+                                        <progress max="100" value="0"></progress>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="feedback-products-list">
+                                <div class="feedback-products-card">
+                                    <img src="src/img/feedback-card-5.jpg" alt="">
+                                    <h3>Trung Quân Idol</h3>
+                                    <div>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p>Dịch vụ tốt!Món ăn rất ngon!</p>
+                                    <div class="feedback-img-group">
+                                        <img src="src/img/blog-detail-1.png" alt="">
+                                        <img src="src/img/blog-detail-1.png" alt="">
+                                        <img src="src/img/blog-detail-1.png" alt="">
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="feedback-products-card">
+                                    <img src="src/img/feedback-card-3.jpg" alt="">
+                                    <h3>Gấu Mỹ Ngọc</h3>
+                                    <div>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p>Qúa là tuyệt dời luôn ó!</p>
+                                    <div class="feedback-img-group">
+                                        <img src="src/img/blog-detail-1.png" alt="">
+                                        <img src="src/img/blog-detail-1.png" alt="">
+                                        <img src="src/img/blog-detail-1.png" alt="">
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="feedback-products-card">
+                                    <img src="src/img/feedback-card-4.jpg" alt="">
+                                    <h3>Anh Zai Ngọc Quân</h3>
+                                    <div>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p>Nơi đây rất tuyệt!</p>
+                                    <div class="feedback-img-group">
+                                        <img src="src/img/blog-detail-1.png" alt="">
+                                        <img src="src/img/blog-detail-1.png" alt="">
+                                        <img src="src/img/blog-detail-1.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="feedbackModal" class="modal">
+                    <div class="booking-form modal-content">
+                        <div class="title">LIÊN HỆ VỚI CHÚNG TÔI</div>
+                        <input type="text" placeholder="Họ và tên của bạn">
+                        <input type="number" placeholder="Số điện thoại">
+                        <div class="booking-date">
+                            <input type="text" placeholder="Ngày đến" onfocus="(this.type='date')">
+                            <input type="text" placeholder="Ngày về" onfocus="(this.type='date')">
+                        </div>
+                        <input type="number" placeholder="Số lượng người">
+                        <textarea name="" id="" cols="30" rows="5"></textarea>
+
+                        <button onclick="closePopup();">GỬI</button>
+                    </div>
+                </div>
+            </div>
+            <button onclick="topFunction()" id="btnToTop" title="Go to top"><i class="fas fa-angle-up"></i></button>
+            <button id="btnChat" onclick="openForm()"><i class="far fa-comment-dots"></i></button>
+            <div id="chat"></div>
+        </main>
+        <footer id="footer"></footer>
+    </div>
+    <script src="src/js/javascript.js"></script>
+    <script>
+        $("#defaultOpen").click();
+    </script>
+    <script>
+        app.filter("groupBy", ["$parse", "$filter", function($parse, $filter) {
+            return function(array, groupByField) {
+                var result = [];
+                var prev_item = null;
+                var groupKey = false;
+                var filteredData = $filter('orderBy')(array, groupByField);
+                for (var i = 0; i < filteredData.length; i++) {
+                    groupKey = false;
+                    if (prev_item !== null) {
+                        if (prev_item[groupByField] !== filteredData[i][groupByField]) {
+                            groupKey = true;
+                        }
+                    } else {
+                        groupKey = true;
+                    }
+                    if (groupKey) {
+                        filteredData[i]['group_by_key'] = true;
+                    } else {
+                        filteredData[i]['group_by_key'] = false;
+                    }
+                    result.push(filteredData[i]);
+                    prev_item = filteredData[i];
+                }
+                return result;
+            }
+        }])
+    </script>
+</body>
+
+</html>

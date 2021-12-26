@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Plus</title>
+    <link rel="icon" type="image/png" href="src/img/Logo.png" sizes="32x32">
+    <link rel="stylesheet" href="src/css/style.css">
+    <!-- <script src="js/jquery-1.11.1.min.js"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css" integrity="sha512-Cb0WDP6lVyVaQJulFMEOBGpkgqU6UAOEBpthbb9BfdhmUXnmYQwobuCm6Xp2YYL6Pd/l0ZA5Up/ijp0fu+nFpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+    <script>
+        $(function() {
+            $("#header").load("src/templates/header.html");
+            $("#footer").load("src/templates/footer.html");
+            $("#chat").load("src/templates/chat-form.html");
+        });
+    </script>
+
+    <script src="src/js/angular.min.js"></script>
+    <script>
+        let urlparams = new URLSearchParams(location.search);
+        var name = urlparams.get('blogname');
+    </script>
+    <script>
+        let app = angular.module("angularApp", []);
+        app.controller("detailController", function($scope, $http) {
+            $http({
+                method: "GET",
+                url: "src/data/blog.json"
+            }).then(
+                function success(response) {
+                    $scope.blogs = response.data;
+                    $scope.selectedBlog = response.data.find(value => value.name == name);
+                },
+                function error(response) {
+                    $scope.error = response.statusText;
+                }
+            )
+        })
+    </script>
+</head>
+
+<body ng-app="angularApp" ng-controller="detailController">
+    <div class="container-layout">
+        <header id="header"></header>
+        <main>
+            <div class="blog-detail">
+                <div class="row-banner">
+                    <img src="src/img/Banner blog.jpg" alt="">
+                </div>
+                <h1 id="blogNameHeader">{{selectedBlog.name}}</h1>
+                <div class="blog-content-detail">
+                    <div>
+                        <img id="img-blog-content-1" src="{{'src/img/' + selectedBlog.img[0].imgdetail1}}" alt="">
+                        <p>Blog | {{selectedBlog.title}} - {{selectedBlog.author}}</p>
+                        <div class="text-blog-content">
+                            <p>{{selectedBlog.content[0].content1}}</p>
+                            <p>{{selectedBlog.content[0].content2}}</p>
+                            <p>{{selectedBlog.content[0].content3}}</p>
+                            <p>{{selectedBlog.content[0].content4}}</p>
+                            <p>{{selectedBlog.content[0].content5}}</p>
+                            <p>{{selectedBlog.content[0].content6}}</p>
+                            <p>{{selectedBlog.content[0].content7}}</p>
+                        </div>
+                        <img id="img-blog-content-2" src="{{'src/img/' + selectedBlog.img[0].imgdetail2}}" alt="">
+                    </div>
+                </div>
+                <h2>Bài viết liên quan</h2>
+                <div class="blog-related-list">
+                    <div class="blog-related-card" ng-repeat="blog in blogs| limitTo:4">
+                        <img src="{{'src/img/' + blog.img[0].imgtitle}}" alt="">
+                        <div>
+                            <h2>{{blog.title}}</h2>
+                            <p>{{blog.shortcontent}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button onclick="topFunction()" id="btnToTop" title="Go to top"><i class="fas fa-angle-up"></i></button>
+            <button id="btnChat" onclick="openForm()"><i class="far fa-comment-dots"></i></button>
+            <div id="chat"></div>
+        </main>
+        <footer id="footer"></footer>
+    </div>
+    <script src="src/js/javascript.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang thanh toán</title>
+    <link rel="icon" type="image/png" href="src/img/Logo.png" sizes="32x32">
+    <link rel="stylesheet" href="src/css/style.css">
+    <!-- <script src="js/jquery-1.11.1.min.js"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css" integrity="sha512-Cb0WDP6lVyVaQJulFMEOBGpkgqU6UAOEBpthbb9BfdhmUXnmYQwobuCm6Xp2YYL6Pd/l0ZA5Up/ijp0fu+nFpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+    <script>
+        $(function() {
+            $("#header").load("src/templates/header.html");
+            $("#footer").load("src/templates/footer.html");
+            $("#chat").load("src/templates/chat-form.html");
+        });
+    </script>
+</head>
+
+<body onload="clearForm()">
+    <div class="container-layout">
+        <header id="header"></header>
+        <main>
+            <form action="" name="myForm">
+                <div class="purchasePage">
+                    <div class="purchase_inputInfo">
+                        <h2 style="margin-top: 50px;">Nhập thông tin liên hệ: </h2>
+                        <input type="text" id="purchase_inputName" class="purchase_input" placeholder="Họ và tên *">
+                        <input type="text" id="purchase_inputGmail" class="purchase_input" placeholder="Gmail *">
+                        <input type="text" id="purchase_inputPhone" class="purchase_input" placeholder="Số điện thoại *">
+                        <input type="text" id="purchase_inputAddress" class="purchase_input" placeholder="Địa chỉ *">
+                        <input type="text" id="purchase_inputNote" class="purchase_input" placeholder="Note">
+                        <button class="btn_order"><a href="index.html">ĐẶT HÀNG</a></button>
+                    </div>
+                    <div class="purchase_reviewOrder">
+                        <div style="margin-left: 20px; margin-top: 50px;">
+                            <h2>Tiếp tục mua hàng</h2>
+                            <div class="buy_sp purchase_product">
+                                <input type="checkbox" name="" id="checkboxProduct1" class="checkboxs">
+                                <div class="imgProduct">
+                                    <img src="./src/img/leu.png" alt="">
+                                </div>
+                                <div class="buy-text">
+                                    <p><b>Lều 4 người NatureHike</b></p>
+                                    <div>
+                                        <label>Số lượng: </label>
+                                        <input type="number" id="qtyProduct1">
+                                    </div>
+                                </div>
+                                <div class="buy-price">
+                                    <input type="number" name="" id="total1" readonly><b>vnđ</b>
+                                </div>
+                                <div class="buy_deleteProduct">
+                                    <button id="buy_deleteProduct" type="reset">Xóa</button>
+                                </div>
+                            </div>
+                            <div class="buy_sp purchase_product" id="buy2">
+                                <input type="checkbox" name="" id="checkboxProduct2" class="checkboxs">
+                                <div class="imgProduct">
+                                    <img src="./src/img/leu.png" alt="">
+                                </div>
+                                <div class="buy-text">
+                                    <p><b>Lều 4 người NatureHike</b></p>
+                                    <div>
+                                        <label>Số lượng: </label>
+                                        <input type="number" id="qtyProduct2">
+                                    </div>
+                                </div>
+                                <div class="buy-price">
+                                    <input type="number" name="" id="total2" readonly><b>vnđ</b>
+                                </div>
+                                <div class="buy_deleteProduct">
+                                    <button id="buy_deleteProduct">Xóa</button>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="purchase_Summary">
+                                <p><b>Tổng tiền</b> </p>
+                                <input class="purchase_totalPrice purchase_price" type="number" name="" id="total" readonly>
+                            </div>
+                            <div class="purchase_shipCode ">
+                                <h4>Phí vận chuyển</h4>
+                                <h4 class="purchase_totalShip purchase_price">35.000đ</h4>
+                            </div>
+                            <hr>
+                            <div class="purchase_totalOrder">
+                                <h4>Tổng thanh toán</h4>
+                                <input class="purchase_totalPrice purchase_price" type="number" name="" id="payment" readonly>
+                            </div>
+                            <p><b>Hình thức thanh toán</b> </p>
+                            <div><input type="radio" name="payment" id=""> <b>Tiền mặt</b> (Thanh toán khi nhận hàng) </div>
+                            <div style="margin-top: 10px;"><input type="radio" name="payment" id=""> <b>Chuyển khoản ngân hàng</b></div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+
+            <button onclick="topFunction()" id="btnToTop" title="Go to top"><i class="fas fa-angle-up"></i></button>
+            <button id="btnChat" onclick="openForm()"><i class="far fa-comment-dots"></i></button>
+            <div id="chat"></div>
+        </main>
+        <footer id="footer"></footer>
+    </div>
+    <script src="src/js/javascript.js">
+    </script>
+</body>
+
+</html>

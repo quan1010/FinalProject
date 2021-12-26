@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Plus</title>
+    <link rel="icon" type="image/png" href="src/img/Logo.png" sizes="32x32">
+    <link rel="stylesheet" href="src/css/style.css">
+    <!-- <script src="js/jquery-1.11.1.min.js"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css" integrity="sha512-Cb0WDP6lVyVaQJulFMEOBGpkgqU6UAOEBpthbb9BfdhmUXnmYQwobuCm6Xp2YYL6Pd/l0ZA5Up/ijp0fu+nFpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+    <script>
+        $(function() {
+            $("#header").load("src/templates/header.html");
+            $("#footer").load("src/templates/footer.html");
+            $("#chat").load("src/templates/chat-form.html");
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container-layout">
+        <header id="header"></header>
+        <main>
+            <div class="row-banner">
+                <img src="src/img/aboutus.png" alt="ERROR">
+            </div>
+            <div class="row__item--left">
+                <img src="src/img/AboutUs-TamNhin.png" alt="ERROR">
+                <div class="content-box">
+                    <h2>TẦM NHÌN</h2>
+                    <p>A Plus Camping & Glamping phấn đấu trở thành một trong những doanh nghiệp hàng đầu Việt Nam trong lĩnh vực cắm trại du lịch, hướng đến việc thành lập các khu cắm trại du lịch tại khắp các tỉnh thành. Cam kết mang lại cho khách hàng trải nghiệm tuyệt vời, dịch vụ chất lượng, phút giây vui vẻ, thoải mái nhất khi cắm trại tại A Plus.
+                    </p>
+                </div>
+            </div>
+            <div class="row__item--right">
+                <img src="src/img/AboutUs-SuMenh.png" alt="ERROR">
+                <div class="content-box">
+                    <h2>SỨ MỆNH</h2>
+                    <p><b>1. Đối với khách hàng:</b> Cam kết phục vụ những sản phẩm và dịch vụ chất lượng đáp ứng nhu cầu của khách hàng.
+                        <b>2. Đối với nhân viên:</b> Tạo môi trường làm việc năng động cho nhân viên phát triển, tăng lương và thưởng theo năng lực, luôn coi trọng giá trị nhân viên.
+                        <b>3. Đối với đối tác:</b> Duy trì hoạt động bền vững, hài hòa giữa lợi ích doanh nghiệp và nhà đầu tư.
+                        <b>4. Đối với xã hội:</b> Bảo vệ môi trường và bảo tồn thiên nhiên trong hoạt động kinh doanh của doanh nghiệp, nỗ lực phát triển đóng góp cho xã hội.
+                    </p>
+                </div>
+            </div>
+            <div class="row__item--left">
+                <img src="src/img/AboutUs-VaiTro.png" alt="ERROR">
+                <div class="content-box">
+                    <h2>VAI TRÒ</h2>
+                    <p>Khai thác phát triển mở rộng mô hình Camping và Glamping tại địa điểm thu hút khách trong nước và khách nước ngoài góp phần phát triển nền kinh tế của đất nước, tạo thêm cơ hội việc làm trong xã hội, tạo điều kiện cho mọi người có không gian thư giãn
+                    </p>
+                </div>
+            </div>
+            <div class="row__item--right">
+                <img src="src/img/AboutUs-GiaTriCotLoi.png" alt="ERROR">
+                <div class="content-box">
+                    <h2>GIÁ TRỊ CỐT LÕI</h2>
+                    <p><b>Hiếu khách:</b> Lấy khách hàng làm trung tâm, luôn chào mừng khách hàng nhiệt tính và thân thiện. <br>
+                        <b>Uy tín:</b> Đảm bảo các sản phẩm và dịch vụ có chất lượng tốt, tạo dựng niềm tin vững chắc với khách hàng. <br>
+                        <b>Đổi mới:</b> Xây dựng và đổi mới các sản phẩm và nâng cao chất lượng dịch vụ của công ty đúng với mong đợi của khách hàng. <br>
+                    </p>
+                </div>
+            </div>
+            <div class="row__item--contact">
+                <h4>MỌI THÔNG TIN QUÝ KHÁCH LIÊN HỆ A PLUS CAMPING & GLAMPING ĐỂ ĐƯỢC TƯ VẤN VÀ HỖ TRỢ DỊCH VỤ NHANH NHẤT
+                </h4>
+                <p>Hotline: +84 909 999 999</p>
+                <p>Email: aplus@gmail.com</p>
+                <p>Fanpage: fb/apluscamping&glamping</p>
+                <p>Địa chỉ khu: Quốc lộ 55, xã Hưng Biển, huyện Xuyên Mộc, tỉnh Bà Rịa - Vũng Tàu</p>
+            </div>
+            <button onclick="topFunction()" id="btnToTop" title="Go to top"><i class="fas fa-angle-up"></i></button>
+            <button id="btnChat" onclick="openForm()"><i class="far fa-comment-dots"></i></button>
+            <div id="chat"></div>
+        </main>
+        <footer id="footer"></footer>
+    </div>
+    <script src="src/js/javascript.js"></script>
+</body>
+
+</html>

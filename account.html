@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Plus</title>
+    <link rel="icon" type="image/png" href="src/img/Logo.png" sizes="32x32">
+    <link rel="stylesheet" href="src/css/style.css">
+    <!-- <script src="js/jquery-1.11.1.min.js"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css" integrity="sha512-Cb0WDP6lVyVaQJulFMEOBGpkgqU6UAOEBpthbb9BfdhmUXnmYQwobuCm6Xp2YYL6Pd/l0ZA5Up/ijp0fu+nFpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+    <script>
+        $(function() {
+            $("#header").load("src/templates/header.html");
+            $("#footer").load("src/templates/footer.html");
+            $("#chat").load("src/templates/chat-form.html");
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container-layout">
+        <header id="header"></header>
+        <main>
+            <div class="account-management">
+                <nav class="menu-links">
+                    <ul>
+                        <li>HỒ SƠ CỦA TÔI
+                            <ul>
+                                <li><a href="src/templates/profile.html" target="accountShow">Hồ sơ</a></li>
+
+                            </ul>
+                        </li>
+                        <li>ĐƠN HÀNG CỦA TÔI
+                            <ul>
+                                <li><a href="src/templates/purchase-history.html" target="accountShow">Sản phẩm mua</a></li>
+                                <li><a href="">Sản phẩm thuê</a></li>
+
+                            </ul>
+                        </li>
+                        <li>SẢN PHẨM YÊU THÍCH</li>
+                        <li>KHO VOUCHER</li>
+                    </ul>
+
+                </nav>
+                <div class="account-content">
+                    <iframe src="src/templates/profile.html" id="myFrame" frameborder="0" scrolling="no" name="accountShow" onload="this.style.height=this.contentDocument.body.scrollHeight +'px';"></iframe>
+                </div>
+            </div>
+            <button onclick="topFunction()" id="btnToTop" title="Go to top"><i class="fas fa-angle-up"></i></button>
+            <button id="btnChat" onclick="openForm()"><i class="far fa-comment-dots"></i></button>
+            <div id="chat"></div>
+        </main>
+        <footer id="footer"></footer>
+    </div>
+    <script src="src/js/javascript.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Plus</title>
+    <link rel="icon" type="image/png" href="src/img/Logo.png" sizes="32x32">
+    <link rel="stylesheet" href="src/css/style.css">
+    <!-- <script src="js/jquery-1.11.1.min.js"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css" integrity="sha512-Cb0WDP6lVyVaQJulFMEOBGpkgqU6UAOEBpthbb9BfdhmUXnmYQwobuCm6Xp2YYL6Pd/l0ZA5Up/ijp0fu+nFpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+    <script>
+        $(function() {
+            $("#header").load("src/templates/header.html");
+            $("#footer").load("src/templates/footer.html");
+            $("#chat").load("src/templates/chat-form.html");
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container-layout">
+        <header id="header"></header>
+        <main>
+            <div class="row-banner">
+                <img src="src/img/Banner blog.jpg" alt="">
+            </div>
+            <div class="row-filter">
+                <span>BLOG</span>
+            </div>
+            <div class="blogs-list-content">
+                <nav class="menu-links">
+                    <ul>
+                        <li><a href="">TIN TỨC</a></li>
+                        <li><a href="src/templates/feedback.html" target="blogFrame">FEEDBACK</a></li>
+                        <li><a href="src/templates/blogs.html" target="blogFrame">CHIA SẺ</a></li>
+                    </ul>
+                </nav>
+                <div class="blog-list">
+                    <iframe src="src/templates/feedback.html" id="myFrame" frameborder="0" scrolling="no" name="blogFrame" onload="this.style.height=this.contentDocument.body.scrollHeight +'px';"></iframe>
+                </div>
+            </div>
+            <button onclick="topFunction()" id="btnToTop" title="Go to top"><i class="fas fa-angle-up"></i></button>
+            <button id="btnChat" onclick="openForm()"><i class="far fa-comment-dots"></i></button>
+            <div id="chat"></div>
+        </main>
+        <footer id="footer"></footer>
+    </div>
+    <script src="src/js/javascript.js"></script>
+
+</body>
+
+</html>
