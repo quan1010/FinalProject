@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/angular.min.js"></script>
+    <script>
+        let app = angular.module("angularApp", []);
+        app.controller("OrderController", function($scope, $http) {
+            $http({
+                method: "GET",
+                url: "../data/orders.json"
+            }).then(function(response) {
+                    $scope.orders = response.data;
+                },
+                function error(response) {
+                    $scope.error = response.statusText;
+                });
+        })
+    </script>
+</head>
+
+<body ng-app="angularApp" ng-controller="OrderController">
+    <div class="profile-container">
+        <div class="profile">
+
+            <p>HỒ SƠ CỦA TÔI</p>
+            <P>Quản lý thông tin hồ sơ để bảo mật tài khoản <span><i class="far fa-edit"></i> </span></P>
+
+            <hr>
+            <div>
+                <div>
+                    <img class="avt" src="../img/feedback-card-4.jpg" alt="">
+                </div>
+
+
+                <!-- <button id="btneditpwd">Đổi mật khẩu</button> -->
+                <a href="account-form.html" target="_blank">Đổi mật khẩu</a>
+            </div>
+            <form action="">
+                <div>
+                    <label for="">Tên đăng nhập:</label>
+                    <input type="text" name="" value="User Name" id="" readonly>
+                </div>
+                <div>
+                    <label for="">Tên:</label>
+                    <input type="text" name="" value="Customer Name" id="" readonly>
+                </div>
+                <div>
+                    <label for="">Email:</label>
+                    <input type="text" name="" value="customer@example.com" id="" readonly>
+                </div>
+                <div>
+                    <label for="">Số điện thoại:</label>
+                    <input type="text" name="" value="000.000.0000" id="" readonly>
+                </div>
+                <div>
+                    <label for="">Giới tính:</label>
+
+                    <input type="radio" name="gender"> Nam
+                    <input type="radio" name="gender"> Nữ
+                </div>
+                <div>
+                    <label for="">Ngày sinh:</label>
+                    <input type="date" readonly>
+                </div>
+                <div>
+                    <label for="">Địa chỉ:</label>
+                    <input type="text" value="address" readonly>
+                </div>
+            </form>
+        </div>
+        <div class="orders">
+            <h3>ĐƠN HÀNG GẦN ĐÂY</h3>
+            <table id="lstOrders">
+                <tr>
+                    <th>ID đơn hàng</th>
+                    <th>Ngày đặt hàng</th>
+                    <th>Sảm phẩm</th>
+                    <th>Tổng cộng</th>
+                </tr>
+                <tr ng-repeat="order in orders | limitTo:3">
+                    <td>{{order.id}}</td>
+                    <td>{{order.orderDate}}</td>
+                    <td>{{order.productName}}</td>
+                    <td>{{order.total}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</body>
+
+</html>

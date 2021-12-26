@@ -1,0 +1,41 @@
+[{
+        "id": "FB001",
+        "title": "Trải nghiệm rất tuyệt vời",
+        "author": "Hương Phạm",
+        "content": "A Plus là khu cắm trại tuyệt với, ở đây nhiều cây mát mẻ, không khí trong lành, mình đi mùa hè nóng bức nhưng ở đây mát lành. Rất thích",
+        "avt": "feedback-card-2.jpg",
+        "date": "10/10/2021"
+    },
+    {
+        "id": "FB002",
+        "title": "A Plus rất đáng để trải nghiệm",
+        "author": "Quân Lương",
+        "content": "A Plus ở gần Hồ Cốc rất dễ tìm, đi từ Bà Rịa vào tầm 10km nữa là tới. Mình thấy ở đây sạch sẽ mát mẻ, còn có nhiều đò ăn ngon, chi phí rẻ, chắc sẽ quay lại 1 lần nữa",
+        "avt": "feedback-card-4.jpg",
+        "date": "13/10/2021"
+    },
+    {
+        "id": "FB003",
+        "title": "Chuyến đi đầy kỉ niệm",
+        "author": "Ngọc Phạm",
+        "content": "10 điểm cho chất lượng ở đây. Rộng rãi, mình đi cả ngày mỏi chân mà chưa hết, đồ ăn thì ngon, vệ sinh mà còn sạch, đồ thuê thì tốt, nhóm mình thuê lều bị hư là được đổi ngay không phiền hà gì, rất đáng thể đến chơi",
+        "avt": "feedback-card-3.jpg",
+        "date": "12/11/2021"
+    },
+    {
+        "id": "FB004",
+        "title": "Sẽ quay lại!",
+        "author": "Quân Trần",
+        "content": "Thấy mấy bạn bảo chỗ dễ tìm mà nhóm mình bị lạc đường, gọi đến thì A Plus chỉ đường nhiệt tình luôn, nhân viên thì thân thiện, có nhiều chỗ chơi. Perfect!",
+        "avt": "feedback-card-5.jpg",
+        "date": "12/10/2021"
+    },
+    {
+        "id": "FB005",
+        "title": "Chuyến đi đầy kỉ niệm",
+        "author": "Bích Trâm",
+        "content": "Nhóm đi 5 người, hết chi phí chưa đến 1tr3, tính ra chưa tới 300k 1 người, rẻ bất ngờ mà được phụ vụ như resort 4 sao.",
+        "avt": "feedback-card-1.jpg",
+        "date": "13/11/2021"
+    }
+]

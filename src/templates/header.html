@@ -1,0 +1,90 @@
+<div class="top-bar">
+    <div class="container-fluid row">
+        <div><i class="fa fa-phone-alt"></i> +84 909 999 999</div>
+        <div><i class="fab fa-facebook-f"></i> Aplus CampGlamp</div>
+        <div><i class="fa fa-envelope"></i> aplus@gmail.com</div>
+    </div>
+</div>
+<nav class="topnav" id="myTopnav">
+    <a class="homeicon" href="/index.html"><img src="src/img/Logo.png" alt=""></a>
+    <a href="/index.html" class="homepage">TRANG CHỦ</a>
+    <div class="dropdown-item">
+        <button class="droplist">SẢN PHẨM
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="/products-list.html">Sản phẩm bán</a>
+            <a href="/products-list.html">Sản phẩm thuê</a>
+        </div>
+    </div>
+    <div class="dropdown-item">
+        <button class="droplist">DỊCH VỤ
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="/glamping-service-list.html">Lưu trú</a>
+            <a href="/glamping-service-list.html">Ăn uống</a>
+        </div>
+    </div>
+    <div class="dropdown-item">
+        <button class="droplist">BLOG
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="#">Tin tức</a>
+            <a href="/blog-list.html">Feedback</a>
+            <a href="/blog-list.html">Chia sẻ</a>
+        </div>
+    </div>
+    <div class="dropdown-item">
+        <button class="droplist">VỀ CHÚNG TÔI
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="/about-us.html">Liên hệ</a>
+            <a href="/about-us.html">Thông tin</a>
+            <a href="">Bảng giá</a>
+        </div>
+    </div>
+    <div class="example-icon">
+        <div class="example-icon-user">
+            <div class="nav-link">
+                <i class="fas fa-user dropdown-account">
+                    <div class="dropdown-content container-account">
+                        <div class="form-account__row form-account_text">TÀI
+                            KHOẢN</div>
+                        <div class="form-account__row">
+                            <img src="/src/img/feedback-card-2.jpg" alt="">
+                        </div>
+                        <div class="form-account__row form-account_text">
+                           Công chúa
+                        </div>
+                        <div class="form-account__row">
+                            <div><a href="/account.html">CÀI ĐẶT</a></div>
+                            <div><a href="/src/templates/account-form.html">ĐĂNG NHẬP</a></div>
+                            <div><a href="/index.html" onclick="logout()">ĐĂNG XUẤT</a></div>
+                        </div>
+                    </div>
+                </i>
+            </div>
+        </div>
+        <div class="example-icon-cart">
+            <a href="/product-buy.html" class="nav-link">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+        </div>
+    </div>
+    <form action="" class="example-search">
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction();"><i class="fa fa-bars"></i></a>
+</nav>
+<script>
+    function logout() {
+        if (typeof(Storage) !== "undefined") {
+            localStorage.removeItem("userName");
+            localStorage.removeItem("password");
+        }
+    }
+</script>

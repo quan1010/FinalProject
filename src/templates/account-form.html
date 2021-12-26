@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/javascript.js"></script>
+    <style>
+        body {
+            height: 100vh;
+            background: linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 255, .5)), url("../img/bg-1.jpg")
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <script>
+        if (typeof(Storage) !== "undefined") {
+            username = localStorage.getItem("userName");
+            password = localStorage.getItem("password");
+            if (username !== null && password !== null) {
+                window.location.href = "../../index.html";
+            }
+        }
+    </script> -->
+    <div class="account-function-layout">
+        <!-- Tab links -->
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'login') " id="defaultOpen">ĐĂNG NHẬP</button>
+            <button class="tablinks" onclick="openTab(event, 'registration')">ĐĂNG KÝ</button>
+            <button class="tablinks" onclick="openTab(event, 'editpassword')">ĐẶT LẠI MẬT KHẨU</button>
+        </div>
+        <!-- Tab content -->
+        <div id="login" class="tabcontent">
+            <form action="" class="account-form-layout">
+                <div><input type="text" placeholder="User Name" id="username" required></div>
+                <div><input type="password" placeholder="Password" id="password" required></div>
+                <div>
+                    <input type="checkbox"> Remember me
+                    <a href="">Quên mật khẩu?</a>
+                </div>
+                <div>
+                    <input type="button" value="ĐĂNG NHẬP" onclick="loginAction()">
+                </div>
+
+            </form>
+        </div>
+        <div id="registration" class="tabcontent">
+            <form action="" class="account-form-layout">
+                <div><input type="text" placeholder="User Name" required></div>
+                <div><input type="text" placeholder="Email" required></div>
+                <div><input type="text" placeholder="Password" required></div>
+                <div><input type="text" placeholder="Re-enter Password" required></div>
+                <div>
+                    <input type="button" value="ĐĂNG KÝ">
+                </div>
+
+            </form>
+        </div>
+
+        <div id="editpassword" class="tabcontent">
+            <form action="" class="account-form-layout">
+                <p>Bạn quên mật khẩu? Vui lòng nhập tên người dùng hoặc địa chỉ email của bạn. Bạn sẽ nhận được một liên kết để tạo mật khẩu mới qua email.</p>
+                <div><input type="text" placeholder="User name or Email" required></div>
+                <div>
+                    <input type="button" value="ĐẶT LẠI MẬT KHẨU">
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById("defaultOpen").click();
+    </script>
+    <script>
+        function loginAction() {
+            if (typeof(Storage) !== "undefined") {
+                var username = document.getElementById("username").value;
+                var password = document.getElementById("password").value;
+                if (username === "congchua" && password === "congchua") {
+                    window.location.href = "/index.html";
+                    localStorage.setItem("userName", username);
+                    localStorage.setItem("password", password);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

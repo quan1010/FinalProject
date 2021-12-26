@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
+
+</head>
+
+<body>
+    <div class="purchase-history-container">
+        <div class="purchase-history-item">
+            <div class="purchase-order-card">
+
+                <h3>ĐÃ GIAO</h3>
+                <hr>
+                <img src="../img/leu.png" alt="">
+                <h4>350.000 Đồng</h4>
+                <h2>Lều cắm trại</h2>
+                <p>x2</p>
+                <hr>
+                <h3>Tổng số tiền: <span>700.000 Đồng</span>
+                </h3>
+                <div>
+                    <button onclick="openPopup()">Đánh giá</button>
+                    <button><a href="/about-us.html" target="_blank">Liên hệ shop</a></button>
+                    <button>Mua lại</button>
+                </div>
+            </div>
+            <div class="purchase-order-card">
+
+                <h3>ĐÃ GIAO</h3>
+                <hr>
+                <img src="../img/leu.png" alt="">
+                <h4>350.000 Đồng</h4>
+                <h2>Lều cắm trại</h2>
+                <p>x2</p>
+                <hr>
+                <h3>Tổng số tiền: <span>700.000 Đồng</span>
+                </h3>
+                <div>
+                    <button onclick="openPopup()">Đánh giá</button>
+                    <button><a href="/about-us.html" target="_blank">Liên hệ shop</a></button>
+                    <button>Mua lại</button>
+                </div>
+            </div>
+            <div class="purchase-order-card">
+                <h3>ĐÃ GIAO</h3>
+                <hr>
+                <img src="../img/leu.png" alt="">
+                <h4>350.000 Đồng</h4>
+                <h2>Lều cắm trại</h2>
+                <p>x2</p>
+                <hr>
+                <h3>Tổng số tiền: <span>700.000 Đồng</span>
+                </h3>
+                <div>
+                    <button onclick="openPopup()">Đánh giá</button>
+                    <button><a href="/about-us.html" target="_blank">Liên hệ shop</a></button>
+                    <button>Mua lại</button>
+                </div>
+            </div>
+        </div>
+        <div id="feedbackModal" class="modal">
+            <div class="feedback-form modal-content">
+                <span class="close" onclick="closePopup()">&times;</span>
+                <div class="align-center">
+                    <h1>ĐÁNH GIÁ SẢN PHẨM</h1>
+                    <p>Một đánh giá của quý khách góp phần to lớn vào chất lượng dịch vụ của chúng tôi trong tương lai</p>
+                    <img src="../img/leu.png">
+                    <h3>Lều cắm trại</h3>
+                    <div class="stars">
+                        <form action="">
+                            <input class="star star-5" id="star-5" type="radio" name="star" />
+                            <label class="star star-5" for="star-5"></label>
+                            <input class="star star-4" id="star-4" type="radio" name="star" />
+                            <label class="star star-4" for="star-4"></label>
+                            <input class="star star-3" id="star-3" type="radio" name="star" />
+                            <label class="star star-3" for="star-3"></label>
+                            <input class="star star-2" id="star-2" type="radio" name="star" />
+                            <label class="star star-2" for="star-2"></label>
+                            <input class="star star-1" id="star-1" type="radio" name="star" />
+                            <label class="star star-1" for="star-1"></label>
+                        </form>
+                    </div>
+                </div>
+
+                <textarea name="comments" id="" cols="60" rows="5"></textarea>
+                <div class="addfile-button">
+                    <button>Thêm hình ảnh</button>
+                    <button>Thêm video</button>
+                </div>
+                <button onclick="closePopup();">HOÀN THÀNH</button>
+            </div>
+        </div>
+
+    </div>
+    <script src="../js/javascript.js"></script>
+
+</body>
+
+</html>

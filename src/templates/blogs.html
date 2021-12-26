@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/angular.min.js"></script>
+    <script>
+        let app = angular.module("angularApp", []);
+        app.controller("blogController", function($scope, $http) {
+            $http({
+                method: "GET",
+                url: "../data/blog.json"
+            }).then(function success(response) {
+                    $scope.blogs = response.data;
+                },
+                function error(response) {
+                    $scope.error = response.statusText;
+                }
+            );
+            $scope.selectProduct = function(val) {
+                $scope.productDetails = val;
+            }
+        })
+    </script>
+</head>
+
+<body ng-app="angularApp" ng-controller="blogController">
+    <div class="blogs-container blog-list">
+        <div class="blog-filter">
+            <span>SẮP XẾP THEO</span>
+            <select name="" id="" ng-model="SortDate">
+                        <option value="" disabled>--Sắp xếp--</option>
+                        <option value="-date" >Bài viết mới nhất</option>
+                        <option value="date">Bài viết cũ nhất</option>
+                    </select>
+        </div>
+        <div class="blog-card" ng-repeat="b in blogs|orderBy:SortDate">
+            <img src="{{'../img/' + b.img[0].imgtitle}}" alt="">
+            <div>
+                <p>Blog | {{b.title}} - {{b.author}}</p>
+                <h2><a href="../../blog-detail.html?blogname={{b.name}}" target="_top">{{b.name}}</a></h2>
+                <p>{{b.shortcontent}}</p>
+            </div>
+        </div>
+    </div>
+    <script src="../js/javascript.js"></script>
+
+
+</body>
+
+</html>
